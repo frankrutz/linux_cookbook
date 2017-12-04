@@ -1,6 +1,19 @@
 # linux_cookbook
 
+For those working command-line on linux systems. Let's call them "penguin".
+
+
+A penguin should know at least basic forms of sed and awk.
+Recommendation: O Reilly's  "Sed & awk Pocket Reference, 2nd edition"
+
+Below, you can find a list of command-line tasks a penguin might have to do at least one a month.
+Collected from real-world experience.
+
+
+Real-world examples.
+
 ## sed command examples
+
 substitute all dots  with nothing, i.e. remove dots. 
 
 sed 's/\.//g' tmp.txt 
