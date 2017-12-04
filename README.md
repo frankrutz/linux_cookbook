@@ -1,6 +1,6 @@
 # linux_cookbook
 
-For those working command-line on linux systems. Let's call them "penguin".
+For those working command-line on linux systems. Let's call them "penguins".
 
 
 A penguin should know at least basic forms of sed and awk.
