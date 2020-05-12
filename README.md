@@ -27,3 +27,13 @@ get a unique version of a file
 sort tmp.txt | uniq
 
 
+## remove all stopped containers
+
+List them:
+
+docker ps -a -q --filter status=exited
+
+Delete them:
+
+docker rm $(docker ps -a -q --filter status=exited)
+
