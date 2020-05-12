@@ -37,3 +37,9 @@ Delete them:
 
 docker rm $(docker ps -a -q --filter status=exited)
 
+## remove dangling docker images
+
+docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
+
+
+
