@@ -1,16 +1,15 @@
 # linux_cookbook
 
-For those working command-line on linux systems. Let's call them "penguins".
+For those working command-line on linux systems.
 
 
-A penguin should know at least basic forms of sed and awk.
+Make sure to read "Command Line Kung Fu: Bash Scripting Tricks, Linux Shell Programming Tips, and Bash One-liners"
+by Jason Cameron:
+https://www.goodreads.com/book/show/21945897-command-line-kung-fu
+
+Know at least basic forms of sed and awk.
 Recommendation: O Reilly's  "Sed & awk Pocket Reference, 2nd edition"
 
-Below, you can find a list of command-line tasks a penguin might have to do at least one a month.
-Collected from real-world experience.
-
-
-Real-world examples.
 
 ## sed command examples
 
@@ -27,7 +26,7 @@ get a unique version of a file
 sort tmp.txt | uniq
 
 
-## remove all stopped containers
+## docker: remove all stopped containers
 
 List them:
 
@@ -37,9 +36,17 @@ Delete them:
 
 docker rm $(docker ps -a -q --filter status=exited)
 
-## remove dangling docker images
+## docker: remove dangling docker images
 
 docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
 
+## mssql server container db :: backup db
+
+BACKUP DATABASE mydbname TO DISK = N'/var/opt/mssql/data/mybackup.bak' with noformat, init, skip, norewind, nounload,compression, stats=10
+
+## mssql server container db :: restore db
+	
+use master;  RESTORE DATABASE mydbname FROM DISK = N'/var/opt/mssql/data/mybackup.bak' WITH REPLACE
+GO
 
 
