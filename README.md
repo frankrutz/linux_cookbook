@@ -70,3 +70,18 @@ WITH
 
 >RESTORE DATABASE successfully processed 186 pages in 0.010 seconds (144.970 MB/sec).
 ~~~~
+
+linux style:
+
+old db named olddb, new db named newdb:
+
+~~~~
+BACKUP DATABASE olddb TO DISK = N'/var/opt/mssql/data/olddb.bak' with noformat, init, skip, norewind, nounload,compression, stats=10
+
+RESTORE FILELISTONLY FROM DISK= N'/var/opt/mssql/data/olddb.bak'
+
+RESTORE DATABASE newdb FROM DISK=N'/var/opt/mssql/data/olddb.bak'
+WITH
+   MOVE 'olddb' TO N'/var/opt/mssql/data/newdb.mdf',
+   MOVE 'olddb_log' TO N'/var/opt/mssql/data/newdb_log.ldf'
+~~~~
