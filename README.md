@@ -49,4 +49,24 @@ BACKUP DATABASE mydbname TO DISK = N'/var/opt/mssql/data/mybackup.bak' with nofo
 use master;  RESTORE DATABASE mydbname FROM DISK = N'/var/opt/mssql/data/mybackup.bak' WITH REPLACE
 GO
 
+## mssql server container db :: restore to a different database
 
+Taken from 
+https://stackoverflow.com/questions/6267273/how-to-restore-to-a-different-database-in-sql-server
+
+
+~~~~
+RESTORE FILELISTONLY FROM DISK='e:\mssql\backup\creditline.bak'
+
+>LogicalName
+>--------------
+>CreditLine
+>CreditLine_log
+
+RESTORE DATABASE MyTempCopy FROM DISK='e:\mssql\backup\creditline.bak'
+WITH 
+   MOVE 'CreditLine' TO 'e:\mssql\MyTempCopy.mdf',
+   MOVE 'CreditLine_log' TO 'e:\mssql\MyTempCopy_log.ldf'
+
+>RESTORE DATABASE successfully processed 186 pages in 0.010 seconds (144.970 MB/sec).
+~~~~
