@@ -95,9 +95,10 @@ git clean --force -d -x
 
 ## Kubernetes scale up / down daemon set
 
+~~~~
 kubectl -n logging patch daemonset filebeat-sl-logging -p '{"spec": {"template": {"spec": {"nodeSelector": {"non-existing": "true"}}}}}'
 kubectl -n logging patch daemonset filebeat-sl-logging --type json -p='[{"op": "remove", "path": "/spec/template/spec/nodeSelector/non-existing"}]'
-    
+~~~~
     
   
   
