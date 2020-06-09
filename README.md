@@ -85,3 +85,13 @@ WITH
    MOVE 'olddb' TO N'/var/opt/mssql/data/newdb.mdf',
    MOVE 'olddb_log' TO N'/var/opt/mssql/data/newdb_log.ldf'
 ~~~~
+
+## git clean everything
+Recursively cleaning your git repository, including untracked directories and ignored files:
+with --force, step into build directories (-d), don't use standard ignore rules (-x)
+~~~~
+git clean --force -d -x
+~~~~
+
+
+
