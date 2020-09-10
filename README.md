@@ -101,8 +101,16 @@ kubectl -n logging patch daemonset filebeat-sl-logging --type json -p='[{"op": "
 ~~~~
     
   
-  
+## Kubernetes which pods are running alpine?
 
-(1 „Gefällt mir“-Angaben)
+This is not about asking IF alpine runs in your cluster.
+This is about in WHICH pods it is running currently.
+There must be a better solution, but here is what I use (alpine just being an example).
+
+~~~~
+kubectl  get pods --all-namespaces -o yaml | grep -i 'alpine\|selflink' | less
+~~~~
+
+
 
 
