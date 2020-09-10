@@ -101,7 +101,11 @@ kubectl -n logging patch daemonset filebeat-sl-logging --type json -p='[{"op": "
 ~~~~
     
   
-## Kubernetes which pods are running which images?
+## Kubernetes which pods run which images?
+
+Want to know which images and pods are running in your cluster, 
+and which images in which pods?
+Easy:
 
 ~~~~
 kubectl  get pod --all-namespaces -o yaml | grep -i 'image\:\|selflink' | less
