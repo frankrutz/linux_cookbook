@@ -10,6 +10,14 @@ https://www.goodreads.com/book/show/21945897-command-line-kung-fu
 Know at least basic forms of sed and awk.
 Recommendation: O Reilly's  "Sed & awk Pocket Reference, 2nd edition"
 
+## File globbing excluding a pattern
+
+GLOBIGNORE="*PATTERN_TO_IGNORE*"
+
+ls -lrt *
+
+unset GLOBIGNORE
+
 
 ## sed command examples
 
