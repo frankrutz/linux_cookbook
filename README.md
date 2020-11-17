@@ -101,6 +101,15 @@ with --force, step into build directories (-d), don't use standard ignore rules 
 git clean --force -d -x
 ~~~~
 
+
+## kubernetes which pvc is bound to which pod
+
+~~~~
+kubectl get pods --all-namespaces -o=json | jq -c '.items[] | {name: .metadata.name, namespace: .metadata.namespace, claimName: .spec |  select( has ("volumes") ).volumes[] | select( has ("persistentVolumeClaim") ).persistentVolumeClaim.claimName }'
+~~~~
+
+
+
 ## Kubernetes scale up / down daemon set
 
 ~~~~
