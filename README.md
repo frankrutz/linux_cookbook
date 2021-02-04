@@ -19,6 +19,10 @@ ls -lrt *
 unset GLOBIGNORE
 
 
+## recursive listing of files by size
+
+find . -type f -printf "%s\t%p\n" | sort -n
+
 ## sed command examples
 
 substitute all dots  with nothing, i.e. remove dots. 
